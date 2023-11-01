@@ -13,12 +13,12 @@
 
     <script>
       const mainButton = window.Telegram.WebApp.MainButton;
-      mainButton.text = 'Save Preferences';
+      mainButton.text = 'Создать объявление';
       mainButton.enable();
       mainButton.show();
 
       mainButton.onClick(function () {
-        window.Telegram.WebApp.sendData(JSON.stringify({data: "..."}));
+        window.Telegram.WebApp.sendData(JSON.stringify({data: "..."})); //todo с формы взять данные
       });
     </script>
   </head>
