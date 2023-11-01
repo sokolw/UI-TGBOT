@@ -4,10 +4,10 @@ $(function() {
 
 	// Form
 
-	var contactForm = function() {
+	var advertisementForm = function() {
 
-		if ($('#contactForm').length > 0 ) {
-			$( "#contactForm" ).validate( {
+		if ($('#advertisementForm').length > 0 ) {
+			$( "#advertisementForm" ).validate( {
 				rules: {
 					name: "required",
 					email: {
@@ -41,7 +41,7 @@ $(function() {
 		               if (msg == 'OK') {
 		               	$('#form-message-warning').hide();
 				            setTimeout(function(){
-		               		$('#contactForm').fadeOut();
+		               		$('#advertisementForm').fadeOut();
 		               	}, 1000);
 				            setTimeout(function(){
 				               $('#form-message-success').fadeIn();   
@@ -64,6 +64,15 @@ $(function() {
 			} );
 		}
 	};
-	contactForm();
+	advertisementForm();
 
+});
+
+const mainButton = window.Telegram.WebApp.MainButton;
+mainButton.text = 'Save Preferences';
+mainButton.enable();
+mainButton.show();
+
+mainButton.onClick(function () {
+  window.Telegram.WebApp.sendData(JSON.stringify({data: "..."}));
 });

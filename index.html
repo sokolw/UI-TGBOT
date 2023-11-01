@@ -2,62 +2,160 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    
+    <title>UI-TGBOT</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700,900&amp;display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="fonts/icomoon/style.css" />
 
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/style.css" />
-
-    <title>UI-TGBOT</title>
   </head>
   <body>
     <div class="content">
       <div class="container">
-        <div class="row align-items-stretch no-gutters contact-wrap">
+        <div class="row align-items-stretch no-gutters advertisement-wrap">
           <div class="col-md">
             <div class="form h-100">
-              <h3>Send us a message</h3>
-              <form class="mb-5" method="post" id="contactForm" name="contactForm" novalidate="novalidate">
+              <h3>Создать объявление</h3>
+              <form class="mb-5" id="advertisementForm" name="advertisementForm" novalidate="novalidate">
                 <div class="row">
                   <div class="col-md-6 form-group mb-5">
-                    <label for="" class="col-form-label">Name *</label>
-                    <input type="text" class="form-control" name="name" id="name" placeholder="Your name" />
+                    <label for="" class="col-form-label">Страна *</label>
+                    <input type="text" class="form-control" name="country" id="country" placeholder="Страна" />
                   </div>
                   <div class="col-md-6 form-group mb-5">
-                    <label for="" class="col-form-label">Email *</label>
-                    <input type="text" class="form-control" name="email" id="email" placeholder="Your email" />
+                    <label for="" class="col-form-label">Город *</label>
+                    <input type="text" class="form-control" name="city" id="city" placeholder="Город" />
                   </div>
                 </div>
                 <div class="row">
                   <div class="col-md-6 form-group mb-5">
-                    <label for="" class="col-form-label">Phone</label>
-                    <input type="text" class="form-control" name="phone" id="phone" placeholder="Phone #" />
+                    <label for="" class="col-form-label">Адрес *</label>
+                    <input type="text" class="form-control" name="address" id="address" placeholder="Адрес" />
                   </div>
                   <div class="col-md-6 form-group mb-5">
-                    <label for="" class="col-form-label">Company</label>
-                    <input type="text" class="form-control" name="company" id="company" placeholder="Company  name" />
+                    <label for="" class="col-form-label">Область *</label>
+                    <input type="text" class="form-control" name="area" id="area" placeholder="Область" />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6 form-group mb-5">
+                    <label for="" class="col-form-label">Комнаты *</label>
+                    <input type="text" class="form-control" name="rooms" id="rooms" placeholder="Комнаты" />
+                  </div>
+                  <div class="col-md-6 form-group mb-5">
+                    <label for="" class="col-form-label">Уборные *</label>
+                    <input type="text" class="form-control" name="bedrooms" id="bedrooms" placeholder="Уборные" />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6 form-group mb-5">
+                    <label for="" class="col-form-label">Площадь *</label>
+                    <input type="text" class="form-control" name="square" id="square" placeholder="Площадь" />
+                  </div>
+                  <div class="col-md-6 form-group mb-5">
+                    <label for="" class="col-form-label">Этаж *</label>
+                    <input type="text" class="form-control" name="floor" id="floor" placeholder="Этаж" />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6 form-group mb-5">
+                    <label for="" class="col-form-label">Всего этажей *</label>
+                    <input type="text" class="form-control" name="maxFloor" id="maxFloor" placeholder="Всего этажей" />
+                  </div>
+                  <div class="col-md-6 form-group mb-5">
+                    <label for="" class="col-form-label">Цена *</label>
+                    <input type="text" class="form-control" name="price" id="price" placeholder="Цена" />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6 form-group mb-5">
+                    <label for="" class="col-form-label">Валюта(USD, PLN, etc.) *</label>
+                    <input type="text" class="form-control" name="currency" id="currency" placeholder="Валюта" />
+                  </div>
+                  <div class="col-md-6 form-group mb-5">
+                    <label for="" class="col-form-label">Символ валюты *</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="currencySymbol"
+                      id="currencySymbol"
+                      placeholder="Символ валюты"
+                    />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6 form-group mb-5">
+                    <label for="" class="col-form-label">Парковка *</label>
+                    <input type="text" class="form-control" name="parking" id="parking" placeholder="Парковка" />
+                  </div>
+                  <div class="col-md-6 form-group mb-5">
+                    <label for="" class="col-form-label">Животные *</label>
+                    <input type="text" class="form-control" name="animals" id="animals" placeholder="Животные" />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6 form-group mb-5">
+                    <label for="" class="col-form-label">Ссылка на местоположение *</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="mapHref"
+                      id="mapHref"
+                      placeholder="Ссылка на местоположение"
+                    />
+                  </div>
+                  <div class="col-md-6 form-group mb-5">
+                    <label for="" class="col-form-label">Телефон *</label>
+                    <input type="text" class="form-control" name="phone" id="phone" placeholder="Телефон" />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6 form-group mb-5">
+                    <label for="" class="col-form-label">Viber *</label>
+                    <input type="checkbox" class="form-control" name="hasViber" id="hasViber" />
+                  </div>
+                  <div class="col-md-6 form-group mb-5">
+                    <label for="" class="col-form-label">WhatsApp *</label>
+                    <input type="checkbox" class="form-control" name="hasWhatsApp" id="hasWhatsApp" />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6 form-group mb-5">
+                    <label for="" class="col-form-label">Логин телеграма для связи *</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="userNameTelegram"
+                      id="userNameTelegram"
+                      placeholder="Логин телеграма"
+                    />
+                  </div>
+                  <div class="col-md-6 form-group mb-5">
+                    <label for="" class="col-form-label">Фотографии *</label>
+                    <input type="file" multiple class="form-control" name="images" id="images" />
                   </div>
                 </div>
                 <div class="row">
                   <div class="col-md-12 form-group mb-5">
-                    <label for="message" class="col-form-label">Message *</label>
+                    <label for="description" class="col-form-label">Описание *</label>
                     <textarea
                       class="form-control"
-                      name="message"
-                      id="message"
+                      name="description"
+                      id="description"
                       cols="30"
                       rows="4"
-                      placeholder="Write your message"
+                      placeholder="Описание"
                     ></textarea>
                   </div>
                 </div>
-                <div class="row">
+                <!-- <div class="row">
                   <div class="col-md-12 form-group">
                     <input type="submit" value="Send Message" class="btn btn-primary rounded-0 py-2 px-4" />
                     <span class="submitting"></span>
                   </div>
-                </div>
+                </div> -->
               </form>
               <div id="form-message-warning mt-4"></div>
               <div id="form-message-success">Your message was sent, thank you!</div>
