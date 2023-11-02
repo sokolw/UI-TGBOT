@@ -41,7 +41,7 @@
                 </div>
                 <div class="row">
                   <div class="col-md-6 form-group mb-5">
-                    <label for="" class="col-form-label">Комнаты *</label>
+                    <label for="" class="col-form-label">Комнаты и спальни*</label>
                     <input type="text" class="form-control" name="rooms" id="rooms" placeholder="Комнаты" />
                   </div>
                   <div class="col-md-6 form-group mb-5">
@@ -164,28 +164,44 @@
         </div>
       </div>
     </div>
+    <!-- <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.validate.min.js"></script> -->
+    <!-- <script src="js/main.js"></script> -->
     <script>
+      const toBase64 = (file) =>
+          new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = () => resolve(reader.result);
+            reader.onerror = reject;
+          });
+          
       (() => {
-        const data = [
-            { name: 'fruits', value: 5 },
-            { name: 'vegetables', value: 5 },
-            { name: 'meat', value: 5 },
-            { name: 'dairy', value: 5 },
-          ];
+        const form = document.querySelector(`form#advertisementForm`);
         const mainButton = window.Telegram.WebApp.MainButton;
-        mainButton.text = 'Создать объявление test';
+        mainButton.text = 'Создать объявление';
         mainButton.enable();
         mainButton.show();
 
-        mainButton.onClick(function () {
-          window.Telegram.WebApp.sendData(JSON.stringify(data)); //todo с формы взять данные
+        mainButton.onClick(async () => {
+          const formData = new FormData(form);
+          const object = {};
+          for (const [key, value] of formData) {
+            if (key === `images`) {
+              if (!object[key]) {
+                object[key] = [await toBase64(value)];
+              } else {
+                object[key].push(await toBase64(value));
+              }
+            } else {
+              object[key] = value;
+            }
+          }
+          window.Telegram.WebApp.sendData(JSON.stringify(object));
         });
       })();
     </script>
-    <!-- <script src="js/jquery-3.3.1.min.js"></script> -->
-    <!-- <script src="js/popper.min.js"></script> -->
-    <!-- <script src="js/bootstrap.min.js"></script> -->
-    <!-- <script src="js/jquery.validate.min.js"></script> -->
-    <!-- <script src="js/main.js"></script> -->
   </body>
 </html>

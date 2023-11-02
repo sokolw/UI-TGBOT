@@ -9,7 +9,7 @@ $(function() {
 		if ($('#advertisementForm').length > 0 ) {
 			$( "#advertisementForm" ).validate( {
 				rules: {
-					name: "required",
+					country: "required",
 					email: {
 						required: true,
 						email: true
@@ -20,7 +20,7 @@ $(function() {
 					}
 				},
 				messages: {
-					name: "Please enter your name",
+					country: "Please enter your name",
 					email: "Please enter a valid email address",
 					message: "Please enter a message"
 				},
