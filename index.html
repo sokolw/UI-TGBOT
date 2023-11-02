@@ -12,19 +12,21 @@
     <link rel="stylesheet" href="css/style.css" />
 
     <script>
-      const mainButton = window.Telegram.WebApp.MainButton;
-      mainButton.text = 'Создать объявление';
-      mainButton.enable();
-      mainButton.show();
+      (() => {
+        const mainButton = window.Telegram.WebApp.MainButton;
+        mainButton.text = 'Создать объявление';
+        mainButton.enable();
+        mainButton.show();
 
-      mainButton.onClick(function () {
-        window.Telegram.WebApp.sendData(JSON.stringify([
-          { name: 'fruits', value: 5 },
-          { name: 'vegetables', value: 5 },
-          { name: 'meat', value: 5 },
-          { name: 'dairy', value: 5 },
-        ])); //todo с формы взять данные
-      });
+        mainButton.onClick(function () {
+          window.Telegram.WebApp.sendData(JSON.stringify([
+            { name: 'fruits', value: 5 },
+            { name: 'vegetables', value: 5 },
+            { name: 'meat', value: 5 },
+            { name: 'dairy', value: 5 },
+          ])); //todo с формы взять данные
+        });
+      })();
     </script>
   </head>
   <body>
