@@ -10,25 +10,6 @@
 
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/style.css" />
-
-    <script>
-      (() => {
-        const data = [
-            { name: 'fruits', value: 5 },
-            { name: 'vegetables', value: 5 },
-            { name: 'meat', value: 5 },
-            { name: 'dairy', value: 5 },
-          ];
-        const mainButton = window.Telegram.WebApp.MainButton;
-        mainButton.text = 'Создать объявление';
-        mainButton.enable();
-        mainButton.show();
-
-        mainButton.onClick(function () {
-          window.Telegram.WebApp.sendData(JSON.stringify(data)); //todo с формы взять данные
-        });
-      })();
-    </script>
   </head>
   <body>
     <div class="content">
@@ -183,6 +164,24 @@
         </div>
       </div>
     </div>
+    <script>
+      (() => {
+        const data = [
+            { name: 'fruits', value: 5 },
+            { name: 'vegetables', value: 5 },
+            { name: 'meat', value: 5 },
+            { name: 'dairy', value: 5 },
+          ];
+        const mainButton = window.Telegram.WebApp.MainButton;
+        mainButton.text = 'Создать объявление test';
+        mainButton.enable();
+        mainButton.show();
+
+        mainButton.onClick(function () {
+          window.Telegram.WebApp.sendData(JSON.stringify(data)); //todo с формы взять данные
+        });
+      })();
+    </script>
     <!-- <script src="js/jquery-3.3.1.min.js"></script> -->
     <!-- <script src="js/popper.min.js"></script> -->
     <!-- <script src="js/bootstrap.min.js"></script> -->
